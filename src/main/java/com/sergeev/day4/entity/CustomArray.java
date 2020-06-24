@@ -1,4 +1,4 @@
-package com.sergeev.day4.CustomArray;
+package com.sergeev.day4.entity;
 
 import com.sergeev.day4.exception.CustomArrayException;
 
@@ -7,8 +7,12 @@ public class CustomArray {
     private int size;
     private int[] numbers;
 
-    public CustomArray(int size, int[] numbers) {
-        this.size = size;
+    public CustomArray(int size, int[] numbers) throws CustomArrayException {
+        if (size >= 1) {
+            this.size = size;
+        }else {
+            throw new CustomArrayException("Invalid index");
+        }
         this.numbers = numbers;
     }
 
@@ -17,9 +21,11 @@ public class CustomArray {
         this.numbers = numbers;
     }
 
-    public CustomArray(int size) {
+    public CustomArray(int size) throws CustomArrayException {
         if (size >= 1) {
             this.numbers = new int[size];
+        }else {
+            throw new CustomArrayException("Invalid index");
         }
     }
 
@@ -31,20 +37,23 @@ public class CustomArray {
         this.size = size;
     }
 
-    public int[] getNumbers() {
-        return numbers;
-    }
-
-    public void setNumbers(int[] numbers) {
+    public void setNumbers(int[] numbers) throws CustomArrayException {
+        if (numbers == null){
+            throw new CustomArrayException("Array of numbers is null");
+        }
         this.numbers = numbers;
     }
 
     public int get(int index) throws CustomArrayException {
-        if (index < 0 || index >= numbers.length) {
+        if (isIndexValid(index)) {
             throw new CustomArrayException("Invalid index");
         } else {
             return numbers[index];
         }
+    }
+
+    private boolean isIndexValid(int index) {
+        return index < 0 || index >= numbers.length;
     }
 
     @Override
@@ -80,7 +89,7 @@ public class CustomArray {
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("CustomArray{");
+        final StringBuilder sb = new StringBuilder("entity{");
         sb.append("size = ");
         sb.append(size);
         sb.append(" ");

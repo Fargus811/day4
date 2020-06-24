@@ -3,7 +3,7 @@ package com.sergeev.day4.service;
 import org.testng.annotations.Test;
 
 
-public class CustomArrayServiceTest {
+public class CustomArraySortServiceTest {
 
     @Test
     public void testFindMax() {
