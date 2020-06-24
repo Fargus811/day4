@@ -11,7 +11,7 @@ public class CustomArraySortService implements CustomArrayService {
         for (int i = array.length - 1; i > 0; i--) {
             for (int j = 0; j < i; j++) {
                 if (array[j] > array[j + 1]) {
-                    swap(array, j,j+1);
+                    swap(array, j, j + 1);
                 }
             }
         }
@@ -34,7 +34,7 @@ public class CustomArraySortService implements CustomArrayService {
         }
     }
 
-    public void shakerSort(CustomArray customArray) throws CustomArrayException{
+    public void shakerSort(CustomArray customArray) throws CustomArrayException {
         int[] array = getArray(customArray);
         int temp;
         int leftSide = 0;
@@ -42,20 +42,20 @@ public class CustomArraySortService implements CustomArrayService {
         do {
             for (int i = leftSide; i < rightSide; i++) {
                 if (array[i] > array[i + 1]) {
-                    swap(array, i,i+1);
+                    swap(array, i, i + 1);
                 }
             }
             rightSide--;
             for (int i = rightSide; i > leftSide; i--) {
                 if (array[i] < array[i - 1]) {
-                    swap(array, array[i],array[i-1]);
+                    swap(array, array[i], array[i - 1]);
                 }
             }
             leftSide++;
         } while (leftSide < rightSide);
     }
 
-    private void swap(int[] array, int firstIndex,int secondIndex) {
+    private void swap(int[] array, int firstIndex, int secondIndex) {
         int tmp = array[firstIndex];
         array[firstIndex] = array[secondIndex];
         array[secondIndex] = tmp;

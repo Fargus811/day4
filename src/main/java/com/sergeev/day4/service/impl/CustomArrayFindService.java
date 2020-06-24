@@ -96,7 +96,7 @@ public class CustomArrayFindService implements CustomArrayService {
         return Optional.ofNullable(simpleNumbersArray);
     }
 
-    private Optional<Integer[]> findNumbersWithThreeDifferentDigits(CustomArray customArray) throws CustomArrayException{
+    private Optional<Integer[]> findNumbersWithThreeDifferentDigits(CustomArray customArray) throws CustomArrayException {
         int[] array = getArray(customArray);
         String number;
         List<Integer> threeDifferentDigitsList = new ArrayList<Integer>();
@@ -112,25 +112,11 @@ public class CustomArrayFindService implements CustomArrayService {
         return Optional.ofNullable(differentDigitsList);
     }
 
+    //The natural number N is the Fibonacci number when 5 * N ^ 2 + 4 is the square
     private boolean isFibonacciNumber(int number) {
-        ArrayList<Integer> fibonacciList = createFibonacciNumbers(number);
-        return fibonacciList.indexOf(number) != -1;
-    }
-
-    private ArrayList<Integer> createFibonacciNumbers(int number) {
-        ArrayList<Integer> fibonacciList = new ArrayList<>();
-        int sum = 1;
-        int nextNumber;
-        if (number > 0) {
-            nextNumber = 1;
-        } else nextNumber = -1;
-        fibonacciList.add(0);
-        fibonacciList.add(nextNumber);
-        for (int i = 2; sum < Math.abs(number); i++) {
-            sum = Math.abs(fibonacciList.get(i - 2) +
-                    fibonacciList.get(i - 1));
-            fibonacciList.add(sum * nextNumber);
-        }
-        return fibonacciList;
+        double result = 5 * Math.pow(number, 2) + 4;
+        long result1 = Math.round(Math.sqrt(result));
+        double result2 = Math.pow(result1, 2);
+        return result2 == number;
     }
 }

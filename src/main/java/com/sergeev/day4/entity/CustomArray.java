@@ -10,7 +10,7 @@ public class CustomArray {
     public CustomArray(int size, int[] numbers) throws CustomArrayException {
         if (size >= 1) {
             this.size = size;
-        }else {
+        } else {
             throw new CustomArrayException("Invalid index");
         }
         this.numbers = numbers;
@@ -24,7 +24,7 @@ public class CustomArray {
     public CustomArray(int size) throws CustomArrayException {
         if (size >= 1) {
             this.numbers = new int[size];
-        }else {
+        } else {
             throw new CustomArrayException("Invalid index");
         }
     }
@@ -38,7 +38,7 @@ public class CustomArray {
     }
 
     public void setNumbers(int[] numbers) throws CustomArrayException {
-        if (numbers == null){
+        if (numbers == null) {
             throw new CustomArrayException("Array of numbers is null");
         }
         this.numbers = numbers;
@@ -89,7 +89,7 @@ public class CustomArray {
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("entity{");
+        final StringBuilder sb = new StringBuilder("CustomArray{");
         sb.append("size = ");
         sb.append(size);
         sb.append(" ");
