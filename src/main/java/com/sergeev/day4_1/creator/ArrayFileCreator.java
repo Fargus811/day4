@@ -17,7 +17,6 @@ public class ArrayFileCreator {
 
     private static final IntArrayWrapperValidator validator = new IntArrayWrapperValidator();
 
-
     public Optional<IntArrayWrapper> createArrayFromFile() throws IntArrayWrapperException {
         String numbers = readLineFromFile(RELATIVE_PATH_TO_FILE);
         IntArrayWrapper intArrayWrapper = null;
