@@ -1,8 +1,8 @@
 package com.sergeev.day4_1.creator;
 
-import com.sergeev.day4_1.entity.CustomArray;
-import com.sergeev.day4_1.exception.CustomArrayException;
-import com.sergeev.day4_1.validator.CustomArrayValidator;
+import com.sergeev.day4_1.entity.IntArrayWrapper;
+import com.sergeev.day4_1.exception.IntArrayWrapperException;
+import com.sergeev.day4_1.validator.IntArrayWrapperValidator;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -15,12 +15,12 @@ public class ArrayFileCreator {
 
     private static final String RELATIVE_PATH_TO_FILE = "src/main/resources/dataArray";
 
-    private static final CustomArrayValidator validator = new CustomArrayValidator();
+    private static final IntArrayWrapperValidator validator = new IntArrayWrapperValidator();
 
 
-    public Optional<CustomArray> createArrayFromFile() throws CustomArrayException {
+    public Optional<IntArrayWrapper> createArrayFromFile() throws IntArrayWrapperException {
         String numbers = readLineFromFile(RELATIVE_PATH_TO_FILE);
-        CustomArray customArray = null;
+        IntArrayWrapper intArrayWrapper = null;
         List<Integer> integerList = new ArrayList<>();
         String[] numbersToValidate = numbers.split(" ");
         for (String digit : numbersToValidate) {
@@ -28,27 +28,27 @@ public class ArrayFileCreator {
             try {
                 number = Integer.parseInt(digit);
             } catch (NumberFormatException e) {
-                throw new CustomArrayException("Number is not correct");
+                throw new IntArrayWrapperException("Number is not correct");
             }
             if (validator.isValid(number)) {
                 integerList.add(number);
             }
         }
         int[] arrayToSet = integerList.stream().mapToInt(i -> i).toArray();
-        customArray = new CustomArray(arrayToSet);
-        return Optional.of(customArray);
+        intArrayWrapper = new IntArrayWrapper(arrayToSet);
+        return Optional.of(intArrayWrapper);
     }
 
-    private static String readLineFromFile(String pathToFile) throws CustomArrayException {
+    private static String readLineFromFile(String pathToFile) throws IntArrayWrapperException {
         String result;
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader(pathToFile))) {
             try {
                 result = bufferedReader.readLine();
             } catch (IOException e) {
-                throw new CustomArrayException("Line in file is empty");
+                throw new IntArrayWrapperException("Line in file is empty");
             }
         } catch (IOException e) {
-            throw new CustomArrayException("File not found");
+            throw new IntArrayWrapperException("File not found");
         }
         return result;
     }

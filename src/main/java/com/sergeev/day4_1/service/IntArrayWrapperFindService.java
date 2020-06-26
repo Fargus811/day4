@@ -1,18 +1,17 @@
-package com.sergeev.day4_1.service.impl;
+package com.sergeev.day4_1.service;
 
-import com.sergeev.day4_1.entity.CustomArray;
-import com.sergeev.day4_1.exception.CustomArrayException;
-import com.sergeev.day4_1.service.CustomArrayService;
+import com.sergeev.day4_1.entity.IntArrayWrapper;
+import com.sergeev.day4_1.exception.IntArrayWrapperException;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-public class CustomArrayFindService implements CustomArrayService {
+public class IntArrayWrapperFindService {
 
 //Optional
-    public int findMax(CustomArray customArray) throws CustomArrayException {
-        int[] array = getArray(customArray);
+    public int findMax(IntArrayWrapper intArrayWrapper) throws IntArrayWrapperException {
+        int[] array = intArrayWrapper.getCloneArray();
         int max = array[0];
         int maxIndex = 0;
         for (int index = 0; index < array.length; index++) {
@@ -23,8 +22,8 @@ public class CustomArrayFindService implements CustomArrayService {
         return array[maxIndex];
     }
 //Optional
-    public int findMin(CustomArray customArray) throws CustomArrayException {
-        int[] array = getArray(customArray);
+    public int findMin(IntArrayWrapper intArrayWrapper) throws IntArrayWrapperException {
+        int[] array = intArrayWrapper.getCloneArray();
         int max = array[0];
         int minIndex = 0;
         for (int index = 0; index < array.length; index++) {
@@ -35,8 +34,8 @@ public class CustomArrayFindService implements CustomArrayService {
         return array[minIndex];
     }
 
-    public Optional<Integer[]> findSimpleNumbers(CustomArray customArray) throws CustomArrayException {
-        int[] array = getArray(customArray);
+    public Optional<Integer[]> findSimpleNumbers(IntArrayWrapper intArrayWrapper) throws IntArrayWrapperException {
+        int[] array = intArrayWrapper.getCloneArray();
         List<Integer> simpleNumbers = new ArrayList<Integer>();
         for (int a : array
         ) {
@@ -83,8 +82,8 @@ public class CustomArrayFindService implements CustomArrayService {
         return index;
     }
 
-    public Optional<Integer[]> findFibonacciNumbers(CustomArray customArray) throws CustomArrayException {
-        int[] array = getArray(customArray);
+    public Optional<Integer[]> findFibonacciNumbers(IntArrayWrapper intArrayWrapper) throws IntArrayWrapperException {
+        int[] array = intArrayWrapper.getCloneArray();
         List<Integer> fibonacciNumbers = new ArrayList<Integer>();
         for (int a : array
         ) {
@@ -96,8 +95,8 @@ public class CustomArrayFindService implements CustomArrayService {
         return Optional.ofNullable(simpleNumbersArray);
     }
 
-    private Optional<Integer[]> findNumbersWithThreeDifferentDigits(CustomArray customArray) throws CustomArrayException {
-        int[] array = getArray(customArray);
+    private Optional<Integer[]> findNumbersWithThreeDifferentDigits(IntArrayWrapper intArrayWrapper) throws IntArrayWrapperException {
+        int[] array = intArrayWrapper.getCloneArray();
         String number;
         List<Integer> threeDifferentDigitsList = new ArrayList<Integer>();
         for (Integer sourceNumber : array) {

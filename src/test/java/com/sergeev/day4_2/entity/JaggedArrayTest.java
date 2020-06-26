@@ -26,7 +26,7 @@ public class JaggedArrayTest {
 
     @Test
     public void testSortingAscendingByMaxElement() throws JaggedArrayException{
-        int[][] actual = sortJagArrByMaxEl.sortingAscending();
+        int[][] actual = sortJagArrByMaxEl.sortAscending();
         int[][] expected = {
                 {1, 10, 2},
                 {11, 2, 1, 4},
@@ -38,7 +38,7 @@ public class JaggedArrayTest {
 
     @Test
     public void testSortingDescendingByMaxElement() throws JaggedArrayException {
-        int[][] actual = sortJagArrByMaxEl.sortingDescending();
+        int[][] actual = sortJagArrByMaxEl.sortDescending();
         int[][] expected = {
                 {100, 2, 0},
                 {9, 8, 12, 25},
@@ -50,7 +50,7 @@ public class JaggedArrayTest {
     @Test(expectedExceptions = JaggedArrayException.class)
     public void testSortingAscendingNullMatrixJagArrExc() throws JaggedArrayException{
         JaggedArray jaggedArray = new JaggedArray(null, maximumElementArraySortService);
-        jaggedArray.sortingAscending();
+        jaggedArray.sortAscending();
     }
 
 

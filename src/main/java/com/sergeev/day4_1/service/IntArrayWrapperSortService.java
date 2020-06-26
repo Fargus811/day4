@@ -1,13 +1,12 @@
-package com.sergeev.day4_1.service.impl;
+package com.sergeev.day4_1.service;
 
-import com.sergeev.day4_1.entity.CustomArray;
-import com.sergeev.day4_1.exception.CustomArrayException;
-import com.sergeev.day4_1.service.CustomArrayService;
+import com.sergeev.day4_1.entity.IntArrayWrapper;
+import com.sergeev.day4_1.exception.IntArrayWrapperException;
 
-public class CustomArraySortService implements CustomArrayService {
+public class IntArrayWrapperSortService {
 
-    public void bubbleSort(CustomArray customArray) throws CustomArrayException {
-        int[] array = getArray(customArray);
+    public void bubbleSort(IntArrayWrapper intArrayWrapper) throws IntArrayWrapperException {
+        int[] array = intArrayWrapper.getCloneArray();
         for (int i = array.length - 1; i > 0; i--) {
             for (int j = 0; j < i; j++) {
                 if (array[j] > array[j + 1]) {
@@ -17,12 +16,11 @@ public class CustomArraySortService implements CustomArrayService {
         }
     }
 
-    public void selectionSort(CustomArray customArray) throws CustomArrayException {
-        int[] array = getArray(customArray);
+    public void selectionSort(IntArrayWrapper intArrayWrapper) throws IntArrayWrapperException {
+        int[] array = intArrayWrapper.getCloneArray();
         for (int i = 0; i < array.length; i++) {
             int pos = i;
             int min = array[i];
-
             for (int j = i + 1; j < array.length; j++) {
                 if (array[j] < min) {
                     pos = j;
@@ -34,8 +32,8 @@ public class CustomArraySortService implements CustomArrayService {
         }
     }
 
-    public void shakerSort(CustomArray customArray) throws CustomArrayException {
-        int[] array = getArray(customArray);
+    public void shakerSort(IntArrayWrapper intArrayWrapper) throws IntArrayWrapperException {
+        int[] array = intArrayWrapper.getCloneArray();
         int temp;
         int leftSide = 0;
         int rightSide = array.length - 1;
@@ -55,9 +53,9 @@ public class CustomArraySortService implements CustomArrayService {
         } while (leftSide < rightSide);
     }
 
-    private void swap(int[] array, int firstIndex, int secondIndex) throws CustomArrayException {
-        if(array == null && array.length <1 ){
-            throw new CustomArrayException("Array is incorrect");
+    private void swap(int[] array, int firstIndex, int secondIndex) throws IntArrayWrapperException {
+        if (array.length < 1) {
+                throw new IntArrayWrapperException("Array is incorrect");
         }
         int tmp = array[firstIndex];
         array[firstIndex] = array[secondIndex];

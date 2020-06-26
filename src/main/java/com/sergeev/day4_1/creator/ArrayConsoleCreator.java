@@ -1,7 +1,8 @@
 package com.sergeev.day4_1.creator;
 
-import com.sergeev.day4_1.entity.CustomArray;
-import com.sergeev.day4_1.validator.CustomArrayValidator;
+import com.sergeev.day4_1.entity.IntArrayWrapper;
+import com.sergeev.day4_1.exception.IntArrayWrapperException;
+import com.sergeev.day4_1.validator.IntArrayWrapperValidator;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,10 +11,10 @@ import java.util.Scanner;
 
 public class ArrayConsoleCreator {
 
-    private static final CustomArrayValidator validator = new CustomArrayValidator();
+    private static final IntArrayWrapperValidator validator = new IntArrayWrapperValidator();
 
-    public Optional<CustomArray> createArrayFromConsole() {
-        CustomArray customArray = null;
+    public Optional<IntArrayWrapper> createArrayFromConsole() throws IntArrayWrapperException {
+        IntArrayWrapper intArrayWrapper = null;
         Scanner scanner = new Scanner(System.in);
         List<Integer> integerList = new ArrayList<>();
         System.out.print("Enter integers separated by spaces. To end, type \"exit\": ");
@@ -35,8 +36,8 @@ public class ArrayConsoleCreator {
         }
         int[] arrayToSet = integerList.stream().mapToInt(i -> i).toArray();
         if (arrayToSet.length != 0) {
-            customArray = new CustomArray(arrayToSet);
+            intArrayWrapper = new IntArrayWrapper(arrayToSet);
         }
-        return Optional.of(customArray);
+        return Optional.of(intArrayWrapper);
     }
 }

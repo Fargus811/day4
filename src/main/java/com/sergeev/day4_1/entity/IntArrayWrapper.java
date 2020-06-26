@@ -1,34 +1,44 @@
 package com.sergeev.day4_1.entity;
 
-import com.sergeev.day4_1.exception.CustomArrayException;
+import com.sergeev.day4_1.exception.IntArrayWrapperException;
 
-public class CustomArray {
+public class IntArrayWrapper {
 
     private final int[] numbers;
 
 
-    public CustomArray(int[] numbers) throws CustomArrayException {
+    public IntArrayWrapper(int[] numbers) throws IntArrayWrapperException {
         if (numbers == null){
-            throw new CustomArrayException("Array is null");
+            throw new IntArrayWrapperException("Array is null");
         }
         this.numbers = numbers;
     }
 
-    public CustomArray(int length) throws CustomArrayException {
-        if (length > 0) {
+    public IntArrayWrapper(int length) throws IntArrayWrapperException {
+        if (length >= 0) {
             this.numbers = new int[length];
         } else {
-            throw new CustomArrayException("Invalid size of array");
+            throw new IntArrayWrapperException("Invalid size of array");
         }
     }
 
+    public int getSize(){
+        return this.numbers.length;
+    }
 
-    public int get(int index) throws CustomArrayException {
+    public int get(int index) throws IntArrayWrapperException {
         if (isIndexValid(index)) {
-            throw new CustomArrayException("Invalid index");
+            throw new IntArrayWrapperException("Invalid index");
         } else {
             return numbers[index];
         }
+    }
+    public int[] getCloneArray() throws IntArrayWrapperException {
+        int[] array = new int[this.getSize()];
+        for (int i = 0; i <array.length ; i++) {
+            array[i] = this.get(i);
+        }
+        return array;
     }
 
     private boolean isIndexValid(int index) {
@@ -40,10 +50,10 @@ public class CustomArray {
         if (this == o) {
             return true;
         }
-        if (!(o instanceof CustomArray)) {
+        if (!(o instanceof IntArrayWrapper)) {
             return false;
         }
-        CustomArray compared = (CustomArray) o;
+        IntArrayWrapper compared = (IntArrayWrapper) o;
         if (this.numbers == null || compared.numbers == null) {
             return false;
         }
@@ -65,7 +75,7 @@ public class CustomArray {
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("CustomArray{");
+        final StringBuilder sb = new StringBuilder("IntArrayWrapper{");
         if (numbers == null) {
             sb.append("null");
         }

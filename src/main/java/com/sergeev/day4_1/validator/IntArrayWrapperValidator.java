@@ -1,6 +1,6 @@
 package com.sergeev.day4_1.validator;
 
-public class CustomArrayValidator {
+public class IntArrayWrapperValidator {
 
     private static final int MAX_VALUE = 999;
     private static final int MIN_VALUE = -999;
