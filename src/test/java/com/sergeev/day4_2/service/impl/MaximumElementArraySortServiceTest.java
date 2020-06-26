@@ -8,11 +8,11 @@ import static org.testng.Assert.assertEquals;
 
 public class MaximumElementArraySortServiceTest {
 
-    MaximumElementArraySortService maximumElementArraySortService;
+    private MaximumElementArrayServiceSortService maximumElementArraySortService;
 
     @BeforeMethod
     public void setUp() {
-        maximumElementArraySortService = new MaximumElementArraySortService();
+        maximumElementArraySortService = new MaximumElementArrayServiceSortService();
     }
 
     @Test

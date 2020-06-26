@@ -1,26 +1,26 @@
 package com.sergeev.day4_2.entity;
 
 import com.sergeev.day4_2.exception.JaggedArrayException;
-import com.sergeev.day4_2.service.CompareArray;
+import com.sergeev.day4_2.service.CompareArrayService;
 
 public class JaggedArray {
 
     private int[][] matrix;
-    private CompareArray compareArray;
+    private CompareArrayService compareArrayService;
 
 
-    public JaggedArray(int[][] matrix, CompareArray compareArray) {
+    public JaggedArray(int[][] matrix, CompareArrayService compareArrayService) {
         this.matrix = matrix;
-        this.compareArray = compareArray;
+        this.compareArrayService = compareArrayService;
     }
 
     public int[][] sortingAscending() throws JaggedArrayException {
-        if (matrix == null && compareArray == null) {
+        if (matrix == null && compareArrayService == null) {
             throw new JaggedArrayException("Matrix is empty");
         }
         for (int row = 0; row < matrix.length; row++) {
             for (int nextRow = 0; nextRow < matrix.length; nextRow++) {
-                if (compareArray.compare(matrix[row], matrix[nextRow]) < 0) {
+                if (compareArrayService.compare(matrix[row], matrix[nextRow]) < 0) {
                     jaggedRowSwapper(matrix, row, nextRow);
                 }
             }
@@ -29,12 +29,12 @@ public class JaggedArray {
     }
 
     public int[][] sortingDescending() throws JaggedArrayException {
-        if (matrix == null && compareArray == null) {
+        if (matrix == null && compareArrayService == null) {
             throw new JaggedArrayException("Matrix is empty");
         }
         for (int row = 0; row < matrix.length; row++) {
             for (int nextRow = 0; nextRow < matrix.length; nextRow++) {
-                if (compareArray.compare(matrix[row], matrix[nextRow]) > 0) {
+                if (compareArrayService.compare(matrix[row], matrix[nextRow]) > 0) {
                     jaggedRowSwapper(matrix, row, nextRow);
                 }
             }

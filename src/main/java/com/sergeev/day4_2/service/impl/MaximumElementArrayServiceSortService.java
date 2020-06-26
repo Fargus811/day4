@@ -1,11 +1,12 @@
 package com.sergeev.day4_2.service.impl;
 
 import com.sergeev.day4_2.exception.JaggedArrayException;
-import com.sergeev.day4_2.service.CompareArray;
+import com.sergeev.day4_2.service.CompareArrayService;
 
-import java.util.function.Predicate;
+import java.util.OptionalInt;
+import java.util.stream.IntStream;
 
-public class MaximumElementArraySortService implements CompareArray {
+public class MaximumElementArrayServiceSortService implements CompareArrayService {
 
     @Override
     public int compare(int[] firstArray, int[] secondArray) throws JaggedArrayException {
@@ -16,13 +17,8 @@ public class MaximumElementArraySortService implements CompareArray {
     }
 
     private int largestValue(int[] array) {
-        int largestValue = array[0];
-        for(int i = 0; i < array.length; i++) {
-            if(largestValue < array[i]) {
-                largestValue = array[i];
-            }
-        }
-        return largestValue;
+       OptionalInt maxValue = IntStream.of(array).max();
+        return maxValue.getAsInt();
     }
 
 }

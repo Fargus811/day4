@@ -1,9 +1,9 @@
 package com.sergeev.day4_2.service.impl;
 
 import com.sergeev.day4_2.exception.JaggedArrayException;
-import com.sergeev.day4_2.service.CompareArray;
+import com.sergeev.day4_2.service.CompareArrayService;
 
-public class MinimalElementArraySortService implements CompareArray {
+public class MinimalElementArrayServiceSortService implements CompareArrayService {
     @Override
     public int compare(int[] firstArray, int[] secondArray)throws JaggedArrayException {
         if (firstArray == null || secondArray == null){
@@ -14,9 +14,9 @@ public class MinimalElementArraySortService implements CompareArray {
 
     private int minimalValue(int[] array) {
         int smallestValue = array[0];
-        for (int i = 0; i < array.length; i++) {
-            if (smallestValue > array[i]) {
-                smallestValue = array[i];
+        for (int value : array) {
+            if (smallestValue > value) {
+                smallestValue = value;
             }
         }
         return smallestValue;

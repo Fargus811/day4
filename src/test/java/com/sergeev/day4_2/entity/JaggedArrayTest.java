@@ -1,7 +1,7 @@
 package com.sergeev.day4_2.entity;
 
 import com.sergeev.day4_2.exception.JaggedArrayException;
-import com.sergeev.day4_2.service.impl.MaximumElementArraySortService;
+import com.sergeev.day4_2.service.impl.MaximumElementArrayServiceSortService;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -10,7 +10,7 @@ import static org.testng.Assert.assertEquals;
 public class JaggedArrayTest {
 
     JaggedArray sortJagArrByMaxEl;
-    MaximumElementArraySortService maximumElementArraySortService;
+    MaximumElementArrayServiceSortService maximumElementArraySortService;
 
     @BeforeMethod
     public void setUp() {
@@ -20,7 +20,7 @@ public class JaggedArrayTest {
                 {11, 2, 1, 4},
                 {100, 2, 0}
         };
-        maximumElementArraySortService = new MaximumElementArraySortService();
+        maximumElementArraySortService = new MaximumElementArrayServiceSortService();
         sortJagArrByMaxEl = new JaggedArray(jagged, maximumElementArraySortService);
     }
 

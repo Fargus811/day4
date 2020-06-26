@@ -8,11 +8,11 @@ import static org.testng.Assert.*;
 
 public class MinimalElementArraySortServiceTest {
 
-    MinimalElementArraySortService minimalElementArraySortService;
+    private MinimalElementArrayServiceSortService minimalElementArraySortService;
 
     @BeforeMethod
     public void setUp() {
-        minimalElementArraySortService = new MinimalElementArraySortService();
+        minimalElementArraySortService = new MinimalElementArrayServiceSortService();
     }
 
     @Test

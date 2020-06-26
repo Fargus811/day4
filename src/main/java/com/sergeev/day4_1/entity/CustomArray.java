@@ -4,38 +4,24 @@ import com.sergeev.day4_1.exception.CustomArrayException;
 
 public class CustomArray {
 
-    private  int size;
     private final int[] numbers;
 
-    public CustomArray(int size, int[] numbers) throws CustomArrayException {
-        if (size > 0) {
-            this.size = size;
-        } else {
-            throw new CustomArrayException("Invalid size");
+
+    public CustomArray(int[] numbers) throws CustomArrayException {
+        if (numbers == null){
+            throw new CustomArrayException("Array is null");
         }
         this.numbers = numbers;
     }
 
-    public CustomArray(int[] numbers) {
-        this.size = numbers.length;
-        this.numbers = numbers;
-    }
-
-    public CustomArray(int size) throws CustomArrayException {
-        if (size > 0) {
-            this.numbers = new int[size];
+    public CustomArray(int length) throws CustomArrayException {
+        if (length > 0) {
+            this.numbers = new int[length];
         } else {
             throw new CustomArrayException("Invalid size of array");
         }
     }
 
-    public int getSize() {
-        return size;
-    }
-
-    public void setSize(int size) {
-        this.size = size;
-    }
 
     public int get(int index) throws CustomArrayException {
         if (isIndexValid(index)) {
@@ -61,10 +47,7 @@ public class CustomArray {
         if (this.numbers == null || compared.numbers == null) {
             return false;
         }
-        if (this.size != compared.size) {
-            return false;
-        }
-        for (int i = 0; i < size; i++) {
+        for (int i = 0; i < numbers.length; i++) {
             if (numbers[i] != compared.numbers[i]) {
                 return false;
             }
@@ -74,7 +57,7 @@ public class CustomArray {
 
     @Override
     public int hashCode() {
-        int result = size;
+        int result = 1;
         for (int element : numbers)
             result = 31 * result + element;
         return result;
@@ -83,9 +66,6 @@ public class CustomArray {
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("CustomArray{");
-        sb.append("size = ");
-        sb.append(size);
-        sb.append(" ");
         if (numbers == null) {
             sb.append("null");
         }
