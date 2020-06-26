@@ -1,8 +1,8 @@
-package com.sergeev.day4.creator;
+package com.sergeev.day4_1.creator;
 
-import com.sergeev.day4.entity.CustomArray;
-import com.sergeev.day4.exception.CustomArrayException;
-import com.sergeev.day4.validator.CustomArrayValidator;
+import com.sergeev.day4_1.entity.CustomArray;
+import com.sergeev.day4_1.exception.CustomArrayException;
+import com.sergeev.day4_1.validator.CustomArrayValidator;
 
 import java.io.BufferedReader;
 import java.io.FileReader;

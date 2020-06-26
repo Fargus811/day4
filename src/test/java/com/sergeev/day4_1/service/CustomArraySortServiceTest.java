@@ -1,4 +1,4 @@
-package com.sergeev.day4.service;
+package com.sergeev.day4_1.service;
 
 import org.testng.annotations.Test;
 

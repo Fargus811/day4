@@ -1,8 +1,8 @@
-package com.sergeev.day4.service.impl;
+package com.sergeev.day4_1.service.impl;
 
-import com.sergeev.day4.entity.CustomArray;
-import com.sergeev.day4.exception.CustomArrayException;
-import com.sergeev.day4.service.CustomArrayService;
+import com.sergeev.day4_1.entity.CustomArray;
+import com.sergeev.day4_1.exception.CustomArrayException;
+import com.sergeev.day4_1.service.CustomArrayService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +10,7 @@ import java.util.Optional;
 
 public class CustomArrayFindService implements CustomArrayService {
 
-
+//Optional
     public int findMax(CustomArray customArray) throws CustomArrayException {
         int[] array = getArray(customArray);
         int max = array[0];
@@ -22,7 +22,7 @@ public class CustomArrayFindService implements CustomArrayService {
         }
         return array[maxIndex];
     }
-
+//Optional
     public int findMin(CustomArray customArray) throws CustomArrayException {
         int[] array = getArray(customArray);
         int max = array[0];

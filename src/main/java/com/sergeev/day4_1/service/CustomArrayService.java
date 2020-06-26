@@ -1,7 +1,7 @@
-package com.sergeev.day4.service;
+package com.sergeev.day4_1.service;
 
-import com.sergeev.day4.entity.CustomArray;
-import com.sergeev.day4.exception.CustomArrayException;
+import com.sergeev.day4_1.entity.CustomArray;
+import com.sergeev.day4_1.exception.CustomArrayException;
 
 public interface CustomArrayService {
 

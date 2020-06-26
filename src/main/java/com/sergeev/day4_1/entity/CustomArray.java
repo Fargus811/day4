@@ -1,17 +1,17 @@
-package com.sergeev.day4.entity;
+package com.sergeev.day4_1.entity;
 
-import com.sergeev.day4.exception.CustomArrayException;
+import com.sergeev.day4_1.exception.CustomArrayException;
 
 public class CustomArray {
 
-    private int size;
-    private int[] numbers;
+    private  int size;
+    private final int[] numbers;
 
     public CustomArray(int size, int[] numbers) throws CustomArrayException {
-        if (size >= 1) {
+        if (size > 0) {
             this.size = size;
         } else {
-            throw new CustomArrayException("Invalid index");
+            throw new CustomArrayException("Invalid size");
         }
         this.numbers = numbers;
     }
@@ -22,10 +22,10 @@ public class CustomArray {
     }
 
     public CustomArray(int size) throws CustomArrayException {
-        if (size >= 1) {
+        if (size > 0) {
             this.numbers = new int[size];
         } else {
-            throw new CustomArrayException("Invalid index");
+            throw new CustomArrayException("Invalid size of array");
         }
     }
 
@@ -35,13 +35,6 @@ public class CustomArray {
 
     public void setSize(int size) {
         this.size = size;
-    }
-
-    public void setNumbers(int[] numbers) throws CustomArrayException {
-        if (numbers == null) {
-            throw new CustomArrayException("Array of numbers is null");
-        }
-        this.numbers = numbers;
     }
 
     public int get(int index) throws CustomArrayException {

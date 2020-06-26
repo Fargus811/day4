@@ -1,8 +1,8 @@
-package com.sergeev.day4.service.impl;
+package com.sergeev.day4_1.service.impl;
 
-import com.sergeev.day4.entity.CustomArray;
-import com.sergeev.day4.exception.CustomArrayException;
-import com.sergeev.day4.service.CustomArrayService;
+import com.sergeev.day4_1.entity.CustomArray;
+import com.sergeev.day4_1.exception.CustomArrayException;
+import com.sergeev.day4_1.service.CustomArrayService;
 
 public class CustomArraySortService implements CustomArrayService {
 
@@ -55,7 +55,10 @@ public class CustomArraySortService implements CustomArrayService {
         } while (leftSide < rightSide);
     }
 
-    private void swap(int[] array, int firstIndex, int secondIndex) {
+    private void swap(int[] array, int firstIndex, int secondIndex) throws CustomArrayException {
+        if(array == null && array.length <1 ){
+            throw new CustomArrayException("Array is incorrect");
+        }
         int tmp = array[firstIndex];
         array[firstIndex] = array[secondIndex];
         array[secondIndex] = tmp;

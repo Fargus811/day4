@@ -1,4 +1,4 @@
-package com.sergeev.day4.validator;
+package com.sergeev.day4_1.validator;
 
 public class CustomArrayValidator {
 

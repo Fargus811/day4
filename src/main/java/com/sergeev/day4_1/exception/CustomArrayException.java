@@ -1,4 +1,4 @@
-package com.sergeev.day4.exception;
+package com.sergeev.day4_1.exception;
 
 public class CustomArrayException extends Exception {
     public CustomArrayException() {
