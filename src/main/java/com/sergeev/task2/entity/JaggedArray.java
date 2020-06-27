@@ -11,17 +11,17 @@ public class JaggedArray {
     private CompareArrayService compareArrayService;
 
 
-    public JaggedArray(int[][] matrix, CompareArrayService compareArrayService) throws JaggedArrayException{
-        jaggedValidator.isMatrixAndServiceValid(matrix,compareArrayService);
+    public JaggedArray(int[][] matrix, CompareArrayService compareArrayService) throws JaggedArrayException {
+        jaggedValidator.isMatrixAndServiceValid(matrix, compareArrayService);
         this.matrix = matrix;
         this.compareArrayService = compareArrayService;
     }
 
-    public int[][] sortAscending() throws JaggedArrayException {
+    public int[][] sortByAscOrDesc(boolean isAscending) throws JaggedArrayException {
         jaggedValidator.isMatrixAndServiceValid(matrix, compareArrayService);
         for (int row = 0; row < matrix.length; row++) {
             for (int nextRow = 0; nextRow < matrix.length; nextRow++) {
-                if (compareArrayService.compare(matrix[row], matrix[nextRow]) < 0) {
+                if (compareArrayService.compare(matrix[row], matrix[nextRow]) * typeSort(isAscending) < 0) {
                     jaggedRowSwapper(matrix, row, nextRow);
                 }
             }
@@ -29,16 +29,11 @@ public class JaggedArray {
         return matrix;
     }
 
-    public int[][] sortDescending() throws JaggedArrayException {
-        jaggedValidator.isMatrixAndServiceValid(matrix, compareArrayService);
-        for (int row = 0; row < matrix.length; row++) {
-            for (int nextRow = 0; nextRow < matrix.length; nextRow++) {
-                if (compareArrayService.compare(matrix[row], matrix[nextRow]) > 0) {
-                    jaggedRowSwapper(matrix, row, nextRow);
-                }
-            }
+    private int typeSort(boolean isAscending) {
+        if (!isAscending) {
+            return -1;
         }
-        return matrix;
+        return 1;
     }
 
     private void jaggedRowSwapper(int[][] jagged, int rowLength, int nextRowLength) {

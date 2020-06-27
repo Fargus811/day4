@@ -13,13 +13,14 @@ import java.util.Optional;
 
 public class ArrayFileCreator {
 
+    private static final String SEPARATOR = " ";
     private static final IntArrayWrapperValidator validator = new IntArrayWrapperValidator();
 
     public Optional<IntArrayWrapper> createArrayFromFile(String pathToFile) throws IntArrayWrapperException {
         String numbers = readLineFromFile(pathToFile);
         IntArrayWrapper intArrayWrapper = null;
         List<Integer> integerList = new ArrayList<>();
-        String[] numbersToValidate = numbers.split(" ");
+        String[] numbersToValidate = numbers.split(SEPARATOR);
         for (String digit : numbersToValidate) {
             int number;
             try {

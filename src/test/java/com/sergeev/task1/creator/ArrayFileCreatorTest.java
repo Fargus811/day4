@@ -10,6 +10,7 @@ import static org.testng.Assert.assertEquals;
 public class ArrayFileCreatorTest {
 
     private static final String RELATIVE_PATH_TO_FILE = "src/main/resources/dataArray";
+    private static final String RELATIVE_PATH_TO_WRONG_FILE = "src/main/resources/dataWithIncorrectLine";
     private ArrayFileCreator arrayFileCreator;
 
     @BeforeMethod
@@ -26,8 +27,13 @@ public class ArrayFileCreatorTest {
 
     @Test(expectedExceptions = IntArrayWrapperException.class)
     public void testCreateArrayFromNotFoundFile() throws IntArrayWrapperException {
-        arrayFileCreator.createArrayFromFile("data.txt").get();
+        arrayFileCreator.createArrayFromFile("wrongData.txt").get();
     }
+    @Test(expectedExceptions = IntArrayWrapperException.class)
+    public void testCreateArrayFromWrongFile() throws IntArrayWrapperException {
+        arrayFileCreator.createArrayFromFile(RELATIVE_PATH_TO_WRONG_FILE).get();
+    }
+
 
 
 }
