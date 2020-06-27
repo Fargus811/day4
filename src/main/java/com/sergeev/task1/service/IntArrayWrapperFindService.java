@@ -113,11 +113,11 @@ public class IntArrayWrapperFindService {
         return isPerfectSquare(resultFirst) || isPerfectSquare(resultSecond);
     }
 
-    private boolean isPerfectSquare(long n) {
-        if (n < 0) {
+    private boolean isPerfectSquare(long number) {
+        if (number < 0) {
             return false;
         }
-        long tst = (long) (Math.sqrt(n) + 0.5);
-        return tst * tst == n;
+        long squareRoot = (long) (Math.sqrt(number) + 0.5);
+        return squareRoot * squareRoot == number;
     }
 }
