@@ -11,7 +11,7 @@ public class ArrayRandomCreator {
     private static final Random random = new Random();
 
     public IntArrayWrapper createRandomIntArrayWrapper(int size) throws IntArrayWrapperException {
-        if (size <1){
+        if (size < 1) {
             throw new IntArrayWrapperException("Invalid size");
         }
         int length = random.nextInt(size);

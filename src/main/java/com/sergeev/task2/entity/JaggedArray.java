@@ -11,7 +11,8 @@ public class JaggedArray {
     private CompareArrayService compareArrayService;
 
 
-    public JaggedArray(int[][] matrix, CompareArrayService compareArrayService) {
+    public JaggedArray(int[][] matrix, CompareArrayService compareArrayService) throws JaggedArrayException{
+        jaggedValidator.isMatrixAndServiceValid(matrix,compareArrayService);
         this.matrix = matrix;
         this.compareArrayService = compareArrayService;
     }

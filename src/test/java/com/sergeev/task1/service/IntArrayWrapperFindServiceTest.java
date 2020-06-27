@@ -27,7 +27,8 @@ public class IntArrayWrapperFindServiceTest {
 
     @Test(expectedExceptions = IntArrayWrapperException.class)
     public void testFindMaxInNullArrayIntArrWrapExc() throws IntArrayWrapperException {
-        intArrayWrapperFindService.findMax(new IntArrayWrapper(null));
+        int[] array = null;
+        intArrayWrapperFindService.findMax(new IntArrayWrapper(array));
     }
 
     @Test(expectedExceptions = IntArrayWrapperException.class)
@@ -45,7 +46,8 @@ public class IntArrayWrapperFindServiceTest {
 
     @Test(expectedExceptions = IntArrayWrapperException.class)
     public void testFindMixInNullArrayIntArrWrapExc() throws IntArrayWrapperException {
-        intArrayWrapperFindService.findMax(new IntArrayWrapper(null));
+        int[] array = null;
+        intArrayWrapperFindService.findMax(new IntArrayWrapper(array));
     }
 
     @Test(expectedExceptions = IntArrayWrapperException.class)
@@ -111,7 +113,8 @@ public class IntArrayWrapperFindServiceTest {
 
     @Test(expectedExceptions = IntArrayWrapperException.class)
     public void testFindFibonacciNumbersInNullArrayIntArrWrapExc() throws IntArrayWrapperException {
-        intArrayWrapperFindService.findFibonacciNumbers(new IntArrayWrapper(null));
+        int[] array = null;
+        intArrayWrapperFindService.findFibonacciNumbers(new IntArrayWrapper(array));
     }
 
     @Test

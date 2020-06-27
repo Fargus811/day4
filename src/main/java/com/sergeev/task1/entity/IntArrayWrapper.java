@@ -2,16 +2,25 @@ package com.sergeev.task1.entity;
 
 import com.sergeev.task1.exception.IntArrayWrapperException;
 
+import java.util.List;
+
 public class IntArrayWrapper {
 
     private final int[] numbers;
 
-
     public IntArrayWrapper(int[] numbers) throws IntArrayWrapperException {
-        if (numbers == null){
+        if (numbers == null) {
             throw new IntArrayWrapperException("Array is null");
         }
         this.numbers = numbers;
+    }
+
+    public IntArrayWrapper(List<Integer> ints) throws IntArrayWrapperException {
+        if (ints.isEmpty()) {
+            this.numbers = ints.stream().mapToInt(i -> i).toArray();
+        } else {
+            throw new IntArrayWrapperException("List is empty");
+        }
     }
 
     public IntArrayWrapper(int length) throws IntArrayWrapperException {
@@ -22,7 +31,7 @@ public class IntArrayWrapper {
         }
     }
 
-    public int getSize(){
+    public int getSize() {
         return this.numbers.length;
     }
 
@@ -33,9 +42,10 @@ public class IntArrayWrapper {
             return numbers[index];
         }
     }
+
     public int[] getCloneArray() throws IntArrayWrapperException {
         int[] array = new int[this.getSize()];
-        for (int i = 0; i <array.length ; i++) {
+        for (int i = 0; i < array.length; i++) {
             array[i] = this.get(i);
         }
         return array;

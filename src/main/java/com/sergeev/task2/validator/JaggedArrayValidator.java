@@ -11,8 +11,8 @@ public class JaggedArrayValidator {
         }
     }
 
-    public void isMatrixAndServiceValid(int[][] matrix, CompareArrayService compareArrayService) throws JaggedArrayException{
-        if (matrix == null && compareArrayService == null) {
+    public void isMatrixAndServiceValid(int[][] matrix, CompareArrayService compareArrayService) throws JaggedArrayException {
+        if (matrix == null || compareArrayService == null) {
             throw new JaggedArrayException("Matrix is empty");
         }
     }

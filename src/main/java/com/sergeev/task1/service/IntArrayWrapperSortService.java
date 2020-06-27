@@ -4,8 +4,6 @@ import com.sergeev.task1.entity.IntArrayWrapper;
 import com.sergeev.task1.exception.IntArrayWrapperException;
 import com.sergeev.task1.validator.IntArrayWrapperValidator;
 
-import java.util.Optional;
-
 public class IntArrayWrapperSortService {
 
     private static final IntArrayWrapperValidator validator = new IntArrayWrapperValidator();
@@ -66,7 +64,7 @@ public class IntArrayWrapperSortService {
 
     private void swap(int[] array, int firstIndex, int secondIndex) throws IntArrayWrapperException {
         if (array.length < 1) {
-                throw new IntArrayWrapperException("Array is incorrect");
+            throw new IntArrayWrapperException("Array is incorrect");
         }
         int tmp = array[firstIndex];
         array[firstIndex] = array[secondIndex];

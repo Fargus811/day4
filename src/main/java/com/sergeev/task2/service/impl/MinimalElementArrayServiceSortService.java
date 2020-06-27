@@ -11,14 +11,12 @@ public class MinimalElementArrayServiceSortService implements CompareArrayServic
     private static final JaggedArrayValidator jaggedValidator = new JaggedArrayValidator();
 
     @Override
-    public int compare(int[] firstArray, int[] secondArray)throws JaggedArrayException {
-        jaggedValidator.isArraysValid(firstArray,secondArray);
+    public int compare(int[] firstArray, int[] secondArray) throws JaggedArrayException {
+        jaggedValidator.isArraysValid(firstArray, secondArray);
         return Integer.compare(minimalValue(firstArray), minimalValue(secondArray));
     }
 
     private int minimalValue(int[] array) {
         return IntStream.of(array).min().getAsInt();
     }
-
-
 }

@@ -11,23 +11,24 @@ import java.util.Scanner;
 
 public class ArrayConsoleCreator {
 
+    public static final String EXIT_LINE = "exit";
     private static final IntArrayWrapperValidator validator = new IntArrayWrapperValidator();
 
     public Optional<IntArrayWrapper> createArrayFromConsole() throws IntArrayWrapperException {
         IntArrayWrapper intArrayWrapper = null;
         Scanner scanner = new Scanner(System.in);
         List<Integer> integerList = new ArrayList<>();
-        System.out.print("Enter integers separated by spaces. To end, type \"exit\": ");
+        System.out.print("Enter integers separated by spaces. To end, type \" " + EXIT_LINE + "\": ");
         while (true) {
             String number = scanner.next();
-            int digit = -1000;
-            if (number.equals("exit")) {
+            int digit;
+            if (number.equals(EXIT_LINE)) {
                 break;
             } else {
                 try {
                     digit = Integer.parseInt(number);
                 } catch (NumberFormatException e) {
-                    throw new IntArrayWrapperException("It is not number");
+                    throw new IntArrayWrapperException("It is not number", e);
                 }
                 if (validator.isValid(digit)) {
                     integerList.add(digit);

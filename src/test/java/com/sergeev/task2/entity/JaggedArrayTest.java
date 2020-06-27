@@ -13,7 +13,7 @@ public class JaggedArrayTest {
     MaximumElementArrayServiceSortService maximumElementArraySortService;
 
     @BeforeMethod
-    public void setUp() {
+    public void setUp() throws JaggedArrayException{
         int[][] jagged = {
                 {1, 10, 2},
                 {9, 8, 12, 25},
@@ -21,7 +21,6 @@ public class JaggedArrayTest {
                 {100, 2, 0}
         };
         maximumElementArraySortService = new MaximumElementArrayServiceSortService();
-        sortJagArrByMaxEl = new JaggedArray(jagged, maximumElementArraySortService);
     }
 
     @Test
@@ -49,9 +48,9 @@ public class JaggedArrayTest {
     }
     @Test(expectedExceptions = JaggedArrayException.class)
     public void testSortingAscendingNullMatrixJagArrExc() throws JaggedArrayException{
-        JaggedArray jaggedArray = new JaggedArray(null, maximumElementArraySortService);
+        int [][] matrixNull = null ;
+        JaggedArray jaggedArray = new JaggedArray(matrixNull , maximumElementArraySortService);
         jaggedArray.sortAscending();
     }
-
 
 }
