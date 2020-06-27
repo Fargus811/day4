@@ -9,23 +9,23 @@ import static org.testng.Assert.assertEquals;
 
 public class JaggedArrayTest {
 
-    JaggedArray sortJagArrByMaxEl;
-    MaximumElementArrayServiceSortService maximumElementArraySortService;
+    private JaggedArray sortJagArrByMaxEl;
+    private MaximumElementArrayServiceSortService maximumElementArraySortService;
 
     @BeforeMethod
-    public void setUp() throws JaggedArrayException{
+    public void setUp() throws JaggedArrayException {
         maximumElementArraySortService = new MaximumElementArrayServiceSortService();
     }
 
     @Test
-    public void testSortingAscendingByMaxElement() throws JaggedArrayException{
+    public void testSortingAscendingByMaxElement() throws JaggedArrayException {
         int[][] jagged = {
                 {1, 10, 2},
                 {9, 8, 12, 25},
                 {11, 2, 1, 4},
                 {100, 2, 0}
         };
-        sortJagArrByMaxEl = new JaggedArray(jagged,maximumElementArraySortService);
+        sortJagArrByMaxEl = new JaggedArray(jagged, maximumElementArraySortService);
         int[][] actual = sortJagArrByMaxEl.sortByAscOrDesc(true);
         int[][] expected = {
                 {1, 10, 2},
@@ -33,7 +33,7 @@ public class JaggedArrayTest {
                 {9, 8, 12, 25},
                 {100, 2, 0},
         };
-        assertEquals(actual,expected);
+        assertEquals(actual, expected);
     }
 
     @Test
@@ -44,7 +44,7 @@ public class JaggedArrayTest {
                 {11, 2, 1, 4},
                 {100, 2, 0}
         };
-        sortJagArrByMaxEl = new JaggedArray(jagged,maximumElementArraySortService);
+        sortJagArrByMaxEl = new JaggedArray(jagged, maximumElementArraySortService);
         int[][] actual = sortJagArrByMaxEl.sortByAscOrDesc(false);
         int[][] expected = {
                 {100, 2, 0},
@@ -52,12 +52,13 @@ public class JaggedArrayTest {
                 {11, 2, 1, 4},
                 {1, 10, 2},
         };
-        assertEquals(actual,expected);
+        assertEquals(actual, expected);
     }
+
     @Test(expectedExceptions = JaggedArrayException.class)
-    public void testSortingAscendingNullMatrixJagArrExc() throws JaggedArrayException{
-        int [][] matrixNull = null ;
-        JaggedArray jaggedArray = new JaggedArray(matrixNull , maximumElementArraySortService);
+    public void testSortingAscendingNullMatrixJagArrExc() throws JaggedArrayException {
+        int[][] matrixNull = null;
+        JaggedArray jaggedArray = new JaggedArray(matrixNull, maximumElementArraySortService);
         jaggedArray.sortByAscOrDesc(false);
     }
 

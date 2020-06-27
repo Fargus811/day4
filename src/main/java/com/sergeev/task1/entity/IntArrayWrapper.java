@@ -17,21 +17,21 @@ public class IntArrayWrapper {
 
     public IntArrayWrapper(List<Integer> ints) throws IntArrayWrapperException {
         if (ints.isEmpty()) {
-            this.numbers = ints.stream().mapToInt(i -> i).toArray();
-        } else {
             throw new IntArrayWrapperException("List is empty");
+        } else {
+            this.numbers = ints.stream().mapToInt(i -> i).toArray();
         }
     }
 
     public IntArrayWrapper(int length) throws IntArrayWrapperException {
-        if (length >= 0) {
+        if (length > 0) {
             this.numbers = new int[length];
         } else {
             throw new IntArrayWrapperException("Invalid size of array");
         }
     }
 
-    public int getSize() {
+    public int getLength() {
         return this.numbers.length;
     }
 
@@ -44,7 +44,7 @@ public class IntArrayWrapper {
     }
 
     public int[] getCloneArray() throws IntArrayWrapperException {
-        int[] array = new int[this.getSize()];
+        int[] array = new int[this.getLength()];
         for (int i = 0; i < array.length; i++) {
             array[i] = this.get(i);
         }
@@ -75,8 +75,9 @@ public class IntArrayWrapper {
     @Override
     public int hashCode() {
         int result = 1;
-        for (int element : numbers)
+        for (int element : numbers) {
             result = 31 * result + element;
+        }
         return result;
     }
 
@@ -86,14 +87,14 @@ public class IntArrayWrapper {
         if (numbers == null) {
             sb.append("null");
         }
-        int maxLenght = numbers.length - 1;
-        if (maxLenght == -1) {
+        int maxLength = numbers.length - 1;
+        if (maxLength == -1) {
             sb.append("[]");
         }
         sb.append('[');
-        for (int i = 0; i <= maxLenght; i++) {
+        for (int i = 0; i <= maxLength; i++) {
             sb.append(numbers[i]);
-            if (i == maxLenght) {
+            if (i == maxLength) {
                 sb.append(']');
                 break;
             }

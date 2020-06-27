@@ -27,8 +27,8 @@ public class IntArrayWrapperSortServiceTest {
     }
 
     @Test(expectedExceptions = IntArrayWrapperException.class)
-    public void testBubbleSortInNullArrayIntArrayIntArrWrapExc() throws IntArrayWrapperException {
-        intArrayWrapperSortService.bubbleSort(new IntArrayWrapper(null));
+    public void testBubbleSortInZeroArrayIntArrayIntArrWrapExc() throws IntArrayWrapperException {
+        intArrayWrapperSortService.bubbleSort(new IntArrayWrapper(new int[0]));
     }
 
     @Test

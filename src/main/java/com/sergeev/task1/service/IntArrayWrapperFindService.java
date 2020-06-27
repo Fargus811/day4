@@ -29,12 +29,11 @@ public class IntArrayWrapperFindService {
         validator.isArrayValid(intArrayWrapper);
         int[] array = intArrayWrapper.getCloneArray();
         List<Integer> simpleNumbers = new ArrayList<Integer>();
-        for (int a : array
-        ) {
+        for (int a : array) {
             if (a == 2) {
                 simpleNumbers.add(a);
             }
-            if (validateSimpleNumber(a)) {
+            if (isSimpleNumber(a)) {
                 simpleNumbers.add(a);
             }
         }
@@ -42,7 +41,7 @@ public class IntArrayWrapperFindService {
         return Optional.ofNullable(simpleNumbersArray);
     }
 
-    private boolean validateSimpleNumber(int number) {
+    private boolean isSimpleNumber(int number) {
         boolean isSimple = true;
         if (number < 0) {
             isSimple = false;
@@ -81,8 +80,7 @@ public class IntArrayWrapperFindService {
         validator.isArrayValid(intArrayWrapper);
         int[] array = intArrayWrapper.getCloneArray();
         List<Integer> fibonacciNumbers = new ArrayList<Integer>();
-        for (int a : array
-        ) {
+        for (int a : array) {
             if (isFibonacciNumber(a)) {
                 fibonacciNumbers.add(a);
             }

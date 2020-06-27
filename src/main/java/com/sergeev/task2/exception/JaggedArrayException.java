@@ -1,6 +1,7 @@
 package com.sergeev.task2.exception;
 
 public class JaggedArrayException extends Exception {
+
     public JaggedArrayException() {
         super();
     }

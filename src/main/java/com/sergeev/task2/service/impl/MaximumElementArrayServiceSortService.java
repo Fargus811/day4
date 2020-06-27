@@ -19,5 +19,4 @@ public class MaximumElementArrayServiceSortService implements CompareArrayServic
     private int maxValue(int[] array) {
         return IntStream.of(array).max().getAsInt();
     }
-
 }

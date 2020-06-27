@@ -57,9 +57,9 @@ public class IntArrayWrapperFindServiceTest {
 
     @Test
     public void testFindSimpleNumbersPositive() throws IntArrayWrapperException {
-        intArrayWrapper = new IntArrayWrapper(new int[]{5, 6, 7, 11});
+        intArrayWrapper = new IntArrayWrapper(new int[]{0, 5, 6, 7, 11});
         Integer[] actual = intArrayWrapperFindService.findSimpleNumbers(intArrayWrapper).get();
-        Integer[] expected = {5, 7, 11};
+        Integer[] expected = {0, 5, 7, 11};
         assertEquals(actual, expected);
     }
 

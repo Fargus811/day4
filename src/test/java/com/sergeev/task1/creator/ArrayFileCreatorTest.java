@@ -11,6 +11,7 @@ public class ArrayFileCreatorTest {
 
     private static final String RELATIVE_PATH_TO_FILE = "src/main/resources/dataArray";
     private static final String RELATIVE_PATH_TO_WRONG_FILE = "src/main/resources/dataWithIncorrectLine";
+    private static final String RELATIVE_PATH_TO_EMPTY_FILE = "src/main/resources/dataWithEmptyLine";
     private ArrayFileCreator arrayFileCreator;
 
     @BeforeMethod
@@ -29,11 +30,16 @@ public class ArrayFileCreatorTest {
     public void testCreateArrayFromNotFoundFile() throws IntArrayWrapperException {
         arrayFileCreator.createArrayFromFile("wrongData.txt").get();
     }
+
     @Test(expectedExceptions = IntArrayWrapperException.class)
     public void testCreateArrayFromWrongFile() throws IntArrayWrapperException {
         arrayFileCreator.createArrayFromFile(RELATIVE_PATH_TO_WRONG_FILE).get();
     }
 
+    @Test(expectedExceptions = IntArrayWrapperException.class)
+    public void testCreateArrayFromFile() throws IntArrayWrapperException {
+        arrayFileCreator.createArrayFromFile(RELATIVE_PATH_TO_EMPTY_FILE).get();
+    }
 
 
 }

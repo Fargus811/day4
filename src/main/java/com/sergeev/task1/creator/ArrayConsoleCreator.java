@@ -11,7 +11,7 @@ import java.util.Scanner;
 
 public class ArrayConsoleCreator {
 
-    public static final String EXIT_LINE = "exit";
+    private static final String EXIT_LINE = "exit";
     private static final IntArrayWrapperValidator validator = new IntArrayWrapperValidator();
 
     public Optional<IntArrayWrapper> createArrayFromConsole() throws IntArrayWrapperException {

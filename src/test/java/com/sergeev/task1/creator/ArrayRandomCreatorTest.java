@@ -20,7 +20,7 @@ public class ArrayRandomCreatorTest {
     public void testCreateRandomIntArrayWrapper() throws IntArrayWrapperException {
         IntArrayWrapper expected = new IntArrayWrapper(new int[5]);
         IntArrayWrapper actual = arrayRandomCreator.createRandomIntArrayWrapper(5);
-        assertEquals(actual.getSize(), expected.getSize());
+        assertEquals(actual.getLength(), expected.getLength(), 4);
     }
 
     @Test(expectedExceptions = IntArrayWrapperException.class)

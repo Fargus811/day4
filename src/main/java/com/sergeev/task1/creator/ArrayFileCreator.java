@@ -18,10 +18,13 @@ public class ArrayFileCreator {
 
     public Optional<IntArrayWrapper> createArrayFromFile(String pathToFile) throws IntArrayWrapperException {
         String numbers = readLineFromFile(pathToFile);
+        if (numbers == null) {
+            throw new IntArrayWrapperException("Line is empty");
+        }
         IntArrayWrapper intArrayWrapper = null;
         List<Integer> integerList = new ArrayList<>();
-        String[] numbersToValidate = numbers.split(SEPARATOR);
-        for (String digit : numbersToValidate) {
+        String[] numbersLine = numbers.split(SEPARATOR);
+        for (String digit : numbersLine) {
             int number;
             try {
                 number = Integer.parseInt(digit);
@@ -40,11 +43,7 @@ public class ArrayFileCreator {
     private static String readLineFromFile(String pathToFile) throws IntArrayWrapperException {
         String result;
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader(pathToFile))) {
-            try {
-                result = bufferedReader.readLine();
-            } catch (IOException e) {
-                throw new IntArrayWrapperException("Line in file is empty");
-            }
+            result = bufferedReader.readLine();
         } catch (IOException e) {
             throw new IntArrayWrapperException("File not found");
         }

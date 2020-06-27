@@ -10,7 +10,6 @@ public class JaggedArray {
     private int[][] matrix;
     private CompareArrayService compareArrayService;
 
-
     public JaggedArray(int[][] matrix, CompareArrayService compareArrayService) throws JaggedArrayException {
         jaggedValidator.isMatrixAndServiceValid(matrix, compareArrayService);
         this.matrix = matrix;
@@ -22,7 +21,7 @@ public class JaggedArray {
         for (int row = 0; row < matrix.length; row++) {
             for (int nextRow = 0; nextRow < matrix.length; nextRow++) {
                 if (compareArrayService.compare(matrix[row], matrix[nextRow]) * typeSort(isAscending) < 0) {
-                    jaggedRowSwapper(matrix, row, nextRow);
+                    rowSwapper(matrix, row, nextRow);
                 }
             }
         }
@@ -36,11 +35,10 @@ public class JaggedArray {
         return 1;
     }
 
-    private void jaggedRowSwapper(int[][] jagged, int rowLength, int nextRowLength) {
+    private void rowSwapper(int[][] jagged, int rowLength, int nextRowLength) {
         int[] jaggedArrayRowSwap = jagged[nextRowLength];
         jagged[nextRowLength] = jagged[rowLength];
         jagged[rowLength] = jaggedArrayRowSwap;
     }
-
 }
 
