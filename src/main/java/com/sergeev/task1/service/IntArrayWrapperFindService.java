@@ -108,12 +108,16 @@ public class IntArrayWrapperFindService {
 
     //The natural number N is the Fibonacci number when 5 * N ^ 2 + 4 or 5 * N ^ 2 + 4 is the square
     private boolean isFibonacciNumber(int number) {
-        double result = 5 * Math.pow(number, 2) + 4;
-        long round = Math.round(Math.sqrt(result));
-        double resultFormulaOne = Math.pow(round, 2);
-        double result1 = 5 * Math.pow(number, 2) - 4;
-        long round1 = Math.round(Math.sqrt(result1));
-        double resultFormula2 = Math.pow(round1, 2);
-        return resultFormulaOne == result || resultFormula2 == result1;
+        long resultFirst = (long) (5 * Math.pow(number, 2) + 4);
+        long resultSecond = (long) (5 * Math.pow(number, 2) - 4);
+        return isPerfectSquare(resultFirst) || isPerfectSquare(resultSecond);
+    }
+
+    private boolean isPerfectSquare(long n) {
+        if (n < 0) {
+            return false;
+        }
+        long tst = (long) (Math.sqrt(n) + 0.5);
+        return tst * tst == n;
     }
 }
